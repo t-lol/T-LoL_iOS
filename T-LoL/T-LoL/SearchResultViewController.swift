@@ -8,46 +8,65 @@
 
 import UIKit
 
-class SearchResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// MARK: - SearchResultViewController: UIViewController
+class SearchResultViewController: UIViewController {
 
+    // MARK: Properties
+    
+    
+    // MARK: Outlets
+    @IBOutlet weak var tableView: UITableView?
+    
+    
+    // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        let nib = UINib(nibName: "MatchResultTableViewCell", bundle: nil)
+        tableView?.register(nib, forCellReuseIdentifier: "MatchResultTableViewCell")
+        
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+// MARK: SearchResultViewController: UITableViewDelegate, UITableViewDataSource
+extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = section == 0 ? 1 : 2
+        //        let count = section == 0 ? 1 : 2
         
-        return count
+        //        return count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MatchResultTableViewCell", for: indexPath) as? MatchResultTableViewCell else {
-            let emptyCell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
-            
-            return emptyCell
+            return UITableViewCell()
         }
+        cell.delegate = self
+        
         return cell
+    }
+}
+
+// MARK: SearchResultViewController
+extension SearchResultViewController {
+    // MARK: Actions
+}
+
+// MARK: SearchResultViewController: MatchResultTableViewCellDelegate
+extension SearchResultViewController: MatchResultTableViewCellDelegate {
+    func showDetail() {
+        let storyboard = UIStoryboard(name: "MatchDetail", bundle: nil)
+        
+        let matchDetailVC = storyboard.instantiateViewController(withIdentifier: "MatchDetailViewController")
+        
+        present(matchDetailVC, animated: true, completion: nil)
     }
 }
