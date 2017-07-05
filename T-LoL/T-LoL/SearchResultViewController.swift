@@ -63,10 +63,16 @@ extension SearchResultViewController {
 // MARK: SearchResultViewController: MatchResultTableViewCellDelegate
 extension SearchResultViewController: MatchResultTableViewCellDelegate {
     func showDetail() {
-        let storyboard = UIStoryboard(name: "MatchDetail", bundle: nil)
+//        let storyboard = UIStoryboard(name: "MatchDetail", bundle: nil)
+//        
+//        let matchDetailVC = storyboard.instantiateViewController(withIdentifier: "MatchDetailViewController")
+//        
+//        present(matchDetailVC, animated: true, completion: nil)
         
-        let matchDetailVC = storyboard.instantiateViewController(withIdentifier: "MatchDetailViewController")
+        performSegue(withIdentifier: "SearchResultSegue", sender: Any.self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        present(matchDetailVC, animated: true, completion: nil)
     }
 }

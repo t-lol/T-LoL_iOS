@@ -20,7 +20,11 @@
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="50" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="i4q-jH-nLD">
                         <rect key="frame" x="0.0" y="28" width="375" height="639"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <outlet property="dataSource" destination="-1" id="JdC-Ra-kMY"/>
+                            <outlet property="delegate" destination="-1" id="azA-O7-FOi"/>
+                        </connections>
                     </tableView>
                 </subviews>
             </view>
@@ -31,7 +35,7 @@
                 <constraint firstAttribute="bottom" secondItem="i4q-jH-nLD" secondAttribute="bottom" id="hqe-PI-VVy"/>
             </constraints>
             <connections>
-                <outlet property="tableView" destination="i4q-jH-nLD" id="foD-nl-dBm"/>
+                <outlet property="tableView" destination="i4q-jH-nLD" id="sBo-ne-O16"/>
             </connections>
         </collectionViewCell>
     </objects>

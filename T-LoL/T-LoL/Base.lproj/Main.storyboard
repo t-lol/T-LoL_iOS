@@ -46,7 +46,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="WQO-JH-Xhz" kind="show" id="Lfp-Y7-e7b"/>
+                                    <segue destination="WQO-JH-Xhz" kind="show" identifier="SearchResultSegue" id="Lfp-Y7-e7b"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-LoL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXS-IV-dSn">
@@ -166,6 +166,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="vjX-LP-xVU" id="Tpd-rN-pbo"/>
                         <outlet property="tableView" destination="qer-NX-pvr" id="Oy7-f5-vJr"/>
+                        <segue destination="zif-YD-4aT" kind="presentation" identifier="SearchResultSegue" id="cUk-kz-GNY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXg-AK-6Vw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,6 +180,14 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1745" y="139"/>
+        </scene>
+        <!--MatchDetailViewController-->
+        <scene sceneID="IwW-CB-jQs">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MatchDetailID" storyboardName="MatchDetail" referencedIdentifier="MatchDetailViewController" id="zif-YD-4aT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7c-4D-ZKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2349" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cJj-7q-FR0">
