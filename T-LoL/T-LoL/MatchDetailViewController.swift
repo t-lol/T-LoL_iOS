@@ -29,13 +29,26 @@ class MatchDetailViewController: UIViewController {
         
         flowLayout?.minimumInteritemSpacing = 0.0
         flowLayout?.minimumLineSpacing = 0.0
-        flowLayout?.itemSize = CGSize(width: view.frame.width, height: view.frame.height - 28)
+        flowLayout?.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
         
         let nib = UINib(nibName: "MatchDetailCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: dCellID)
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissViewController))
+        view.addGestureRecognizer(gestureRecognizer)
     }
 }
+
+
+// MARK:
+extension MatchDetailViewController {
+    // MARK: Action
+    func dissmissViewController() {
+        dismiss(animated: true, completion: nil)
+    }
+}
+
+
 
 // MARK: MatchDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate
 extension MatchDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
