@@ -27,7 +27,7 @@
                                 <rect key="frame" x="16" y="318" width="270" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qht-Pk-JuT">
                                 <rect key="frame" x="294" y="322" width="65" height="22"/>
@@ -46,7 +46,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="WQO-JH-Xhz" kind="show" identifier="SearchResultSegue" id="Lfp-Y7-e7b"/>
+                                    <action selector="searchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zEr-gm-G7e"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T-LoL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXS-IV-dSn">
@@ -68,10 +68,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hzK-Po-gZv"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="iuq-Dn-g9C" id="lU1-Sn-LpE"/>
+                        <segue destination="WQO-JH-Xhz" kind="show" identifier="SearchResultSegue" id="svv-VS-PBj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="139"/>
+            <point key="canvasLocation" x="1037.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="BuJ-I6-nCD">
@@ -85,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="506" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qer-NX-pvr">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="506" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qer-NX-pvr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="QaH-UI-mMC">
@@ -157,7 +161,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 </textField>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -165,6 +169,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="vjX-LP-xVU" id="Tpd-rN-pbo"/>
+                        <outlet property="searchTextField" destination="9ag-bx-37t" id="dFX-mS-20Z"/>
                         <outlet property="tableView" destination="qer-NX-pvr" id="Oy7-f5-vJr"/>
                         <segue destination="zif-YD-4aT" kind="presentation" identifier="SearchResultSegue" id="cUk-kz-GNY"/>
                     </connections>

@@ -12,10 +12,12 @@ import UIKit
 class SearchResultViewController: UIViewController {
 
     // MARK: Properties
+    var userID: String?
     
     
     // MARK: Outlets
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var searchTextField: UITextField?
     
     
     // MARK: Life cycle
@@ -23,6 +25,10 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let userID = userID {
+            searchTextField?.text = userID
+        }
+        searchTextField?.delegate = self
         
         let nib = UINib(nibName: "MatchResultTableViewCell", bundle: nil)
         tableView?.register(nib, forCellReuseIdentifier: "MatchResultTableViewCell")
@@ -30,6 +36,19 @@ class SearchResultViewController: UIViewController {
     }
     
 }
+
+
+// MARK:
+extension SearchResultViewController {
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    
+    // MARK: Actions
+}
+
 
 // MARK: SearchResultViewController: UITableViewDelegate, UITableViewDataSource
 extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
@@ -55,10 +74,6 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-// MARK: SearchResultViewController
-extension SearchResultViewController {
-    // MARK: Actions
-}
 
 // MARK: SearchResultViewController: MatchResultTableViewCellDelegate
 extension SearchResultViewController: MatchResultTableViewCellDelegate {
@@ -69,10 +84,15 @@ extension SearchResultViewController: MatchResultTableViewCellDelegate {
 //        
 //        present(matchDetailVC, animated: true, completion: nil)
         
-        performSegue(withIdentifier: "SearchResultSegue", sender: Any.self)
+        performSegue(withIdentifier: "SearchResultSegue", sender: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+}
+
+
+// MARK: SearchResultViewController: UITextFieldDelegate
+extension SearchResultViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 }
