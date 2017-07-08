@@ -27,8 +27,8 @@ class MatchDetailCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
 
-        tableView?.delegate = self
-        tableView?.dataSource = self
+//        tableView?.delegate = self
+//        tableView?.dataSource = self
     
         let headerNib: UINib = UINib(nibName: "MatchDetailHeaderView", bundle: nil)
         tableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: kHeaderViewID)
@@ -40,14 +40,15 @@ class MatchDetailCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews()
     {
         super.layoutSubviews()
-//        tableView?.delegate = self
-//        tableView?.dataSource = self
-//        
+        tableView?.delegate = self
+        tableView?.dataSource = self
+//
 //        let headerNib: UINib = UINib.init(nibName: "MatchResultHeaderView", bundle: nil)
 //        tableView?.register(headerNib, forHeaderFooterViewReuseIdentifier: kHeaderViewID)
     }
     
 }
+
 
 // MARK: MatchDetailCollectionViewCell: UITableViewDelegate, UITableViewDataSource
 extension MatchDetailCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
